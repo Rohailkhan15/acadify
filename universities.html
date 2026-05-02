@@ -443,7 +443,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
         <div class="text-sm font-semibold font-display" style="color:${colorCode}">
-          ${aggregate >= 75 ? '🎉 Great score! Strong admission chances.' : aggregate >= 50 ? '👍 Decent score. Check university cutoffs.' : '📚 Below average. Consider retaking the test.'}
+          ${aggregate >= 75 ? '🎉 Great score!' : aggregate >= 50 ? '👍 Decent score.' : '📚 Below average.'}
         </div>
       </div>`;
     setTimeout(() => {
