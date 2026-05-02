@@ -10,13 +10,13 @@
 <meta name="keywords" content="about aggregate calculator Pakistan, free university merit calculator, Pakistani student tools, university admission help Pakistan"/>
 <meta name="author" content="Acadify"/>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://acadifyservice.netlify.app/about.html"/>
+<link rel="canonical" href="https://[acadifyservice.netlify.app]/about.html"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:title" content="About Acadify — Free Aggregate Calculator for Pakistani Students"/>
 <meta property="og:description" content="Built by a Pakistani student, for Pakistani students. Free, accurate, no login required. Aggregate formulas from official university prospectuses."/>
-<meta property="og:url" content="https://acadifyservice.netlify.app/about.html"/>
+<meta property="og:url" content="https://[acadifyservice.netlify.app]/about.html"/>
 <meta property="og:site_name" content="Acadify"/>
 <meta property="og:locale" content="en_PK"/>
 
@@ -31,7 +31,7 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Acadify",
-  "url": "https://acadifyservice.netlify.app/",
+  "url": "https://[acadifyservice.netlify.app]/",
   "description": "Free aggregate calculator for Pakistani university admissions. Accurate formulas from official university prospectuses.",
   "foundingLocation": {
     "@type": "Place",
@@ -64,13 +64,17 @@
       <a href="how-it-works.html" class="text-[#43474e] hover:text-[#002045] transition-colors">How it Works</a>
       <a href="about.html" class="text-[#002045] font-semibold border-b-2 border-[#002045] pb-0.5">About</a>
     </div>
-    <a href="index.html" class="bg-[#002045] text-white font-display font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#1a365d] transition-colors">Calculate</a>
+    <div class="flex items-center gap-2"><a href="index.html" class="bg-[#002045] text-white font-display font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#1a365d] transition-colors">Calculate</a>
+    <button onclick="shareAcadify(this)" title="Share Acadify" class="flex items-center gap-1.5 border border-[#c4c6cf] text-[#43474e] font-display font-semibold text-sm px-3 py-2 rounded-lg hover:border-[#002045] hover:text-[#002045] transition-colors active:scale-95"><span class="material-symbols-outlined text-[16px]">share</span>Share</button>
+    </div>
   </div>
   <div class="md:hidden flex gap-4 px-4 pb-2 font-display text-xs font-medium overflow-x-auto">
     <a href="index.html" class="text-[#43474e] whitespace-nowrap">Home</a>
     <a href="universities.html" class="text-[#43474e] whitespace-nowrap">Universities</a>
     <a href="how-it-works.html" class="text-[#43474e] whitespace-nowrap">How it Works</a>
     <a href="about.html" class="text-[#002045] font-semibold whitespace-nowrap border-b border-[#002045]">About</a>
+  
+    <button onclick="shareAcadify(this)" class="text-[#43474e] whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">share</span>Share</button>
   </div>
 </nav>
 
@@ -172,12 +176,20 @@
       <div class="font-display font-bold text-[#002045] mb-1">Acadify</div>
       <p class="text-xs text-[#74777f]">© 2025 Acadify. Empowering Pakistani students.</p>
     </div>
-    <div class="flex gap-6 text-xs text-[#74777f] font-medium">
+    <div class="flex gap-6 text-xs text-[#74777f] font-medium items-center">
       <a href="universities.html" class="hover:text-[#002045] transition-colors">Universities</a>
       <a href="how-it-works.html" class="hover:text-[#002045] transition-colors">How it Works</a>
       <a href="about.html" class="hover:text-[#002045] transition-colors">About</a>
+      <button onclick="shareAcadify(this)" class="hover:text-[#002045] transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">share</span>Share</button>
     </div>
   </div>
 </footer>
+<script>
+function shareAcadify(btn) {
+  const data = { title: 'Acadify — Free Aggregate Calculator', text: 'Calculate your university aggregate instantly — free, no login. NUST, FAST, UET, COMSATS and 15+ Pakistani universities.', url: 'https://acadifyservice.netlify.app/' };
+  if (navigator.share) { navigator.share(data); }
+  else { navigator.clipboard.writeText(data.url).then(() => { const orig = btn.innerHTML; btn.innerHTML = '<span class=\"material-symbols-outlined text-[14px]\">check</span>Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 2000); }); }
+}
+</script>
 </body>
 </html>
