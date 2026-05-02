@@ -77,14 +77,16 @@
       <a href="how-it-works.html" class="text-[#43474e] hover:text-[#002045] transition-colors">How it Works</a>
       <a href="about.html" class="text-[#43474e] hover:text-[#002045] transition-colors">About</a>
     </div>
-    <a href="index.html" class="bg-[#002045] text-white font-display font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#1a365d] transition-colors">Calculate</a>
+    <div class="flex items-center gap-2"><a href="index.html" class="bg-[#002045] text-white font-display font-semibold text-sm px-4 py-2 rounded-lg hover:bg-[#1a365d] transition-colors">Calculate</a>
     <button onclick="shareAcadify(this)" title="Share Acadify" class="flex items-center gap-1.5 border border-[#c4c6cf] text-[#43474e] font-display font-semibold text-sm px-3 py-2 rounded-lg hover:border-[#002045] hover:text-[#002045] transition-colors active:scale-95"><span class="material-symbols-outlined text-[16px]">share</span>Share</button>
+    </div>
   </div>
   <div class="md:hidden flex gap-4 px-4 pb-2 font-display text-xs font-medium overflow-x-auto">
     <a href="index.html" class="text-[#43474e] whitespace-nowrap">Home</a>
     <a href="universities.html" class="text-[#002045] font-semibold whitespace-nowrap border-b border-[#002045]">Universities</a>
     <a href="how-it-works.html" class="text-[#43474e] whitespace-nowrap">How it Works</a>
     <a href="about.html" class="text-[#43474e] whitespace-nowrap">About</a>
+  
     <button onclick="shareAcadify(this)" class="text-[#43474e] whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">share</span>Share</button>
   </div>
 </nav>
@@ -173,7 +175,7 @@
 function shareAcadify(btn) {
   const data = { title: 'Acadify — Free Aggregate Calculator', text: 'Calculate your university aggregate instantly — free, no login. NUST, FAST, UET, COMSATS and 15+ Pakistani universities.', url: 'https://acadifyservice.netlify.app/' };
   if (navigator.share) { navigator.share(data); }
-  else { navigator.clipboard.writeText(data.url).then(() => { const orig = btn.innerHTML; btn.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span>Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 2000); }); }
+  else { navigator.clipboard.writeText(data.url).then(() => { const orig = btn.innerHTML; btn.innerHTML = '<span class=\"material-symbols-outlined text-[14px]\">check</span>Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 2000); }); }
 }
 </script>
 <script src="Universities.js"></script>
