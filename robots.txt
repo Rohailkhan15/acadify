@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block error page from being indexed
+Disallow: /404.html
+
+Sitemap: https://[YOUR-DOMAIN]/sitemap.xml
