@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
           </div>
         </div>
-        <div class="text-sm font-medium" style="color:${colorClass}">${pct>=75?'Great score! High chance of admission.':pct>=50?'Decent score. Check cutoffs carefully.':'Below average. Consider improving.'}</div>
+        <div class="text-sm font-medium" style="color:${colorClass}">${pct>=75?'Great score!':pct>=50?'Decent score.':'Below average.'}</div>
       </div>`;
     resultDisplay.innerHTML='';
     resultDisplay.appendChild(div);
