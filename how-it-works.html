@@ -98,7 +98,6 @@
     <a href="how-it-works.html" class="text-[#002045] font-semibold whitespace-nowrap border-b border-[#002045]">How it Works</a>
     <a href="about.html" class="text-[#43474e] whitespace-nowrap">About</a>
   
-    <button onclick="shareAcadify(this)" class="text-[#43474e] whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">share</span>Share</button>
   </div>
 </nav>
 
@@ -266,9 +265,17 @@
 
 <script>
 function shareAcadify(btn) {
-  const data = { title: 'Acadify — Free Aggregate Calculator', text: 'Calculate your university aggregate instantly — free, no login. NUST, FAST, UET, COMSATS and 15+ Pakistani universities.', url: 'https://acadifyservice.netlify.app/' };
-  if (navigator.share) { navigator.share(data); }
-  else { navigator.clipboard.writeText(data.url).then(() => { const orig = btn.innerHTML; btn.innerHTML = '<span class=\"material-symbols-outlined text-[14px]\">check</span>Copied!'; setTimeout(() => { btn.innerHTML = orig; }, 2000); }); }
+  const url = 'https://acadifyservice.netlify.app/';
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  if (isMobile && navigator.share) {
+    navigator.share({ title: 'Acadify — Free Aggregate Calculator', text: 'Calculate your university aggregate instantly — free, no login. NUST, FAST, UET, COMSATS and 15+ Pakistani universities.', url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(url).then(() => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span class="material-symbols-outlined text-[16px]">check</span>Copied!';
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    }).catch(() => { prompt('Copy this link:', url); });
+  }
 }
 </script>
 <script>
